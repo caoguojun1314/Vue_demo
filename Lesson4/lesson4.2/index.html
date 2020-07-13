@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>父子组件间的数据传递</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <counter :count='1'></counter>
+        <counter :count='2'></counter>
+    </div>
+    <script>
+        let counter = {
+            props:['count'],
+            template: '<div>{{count}}</div>'
+        }
+        let vm = new Vue({
+            el: '#root',
+            components: {
+                counter: counter
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <script src="./vue.js"></script>  
+</head>
+<body>
+    <div id="app">{{content}}</div>
+    <script>
+        // let dom = document.getElementById("app")
+        // dom.innerHTML = "hello world"
+        // dom.innerText = "hello app"
+        let app = new Vue({ // 创建一个Vue实例
+            el: "#app", //el限制处理范围
+            data: {     //定义一些数据
+                content: "hello guojun"
+            }
+        })
+        setTimeout(function() {
+            app.$data.content = 'bye guojun'
+        },2000)
+    </script>
+</body>
+</html>

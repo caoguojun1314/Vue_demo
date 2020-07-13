@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件使用中的细节点: 使用is解决H5标签的小bug</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <table>
+            <tbody>
+               <!--  <tr><td>1</td></tr>
+                <tr><td>2</td></tr>
+                <tr><td>3</td></tr> -->
+                <!-- 在页面上和table同级了 -->
+                <!-- <row></row>
+                <row></row>
+                <row></row> -->
+                <!-- 改进， ul,li;ol,li;select,option;同样适用 -->
+                <tr is='row'></tr>
+                <tr is='row'></tr>
+                <tr is='row'></tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        //定义一个全局组件
+        Vue.component('row', {
+            template: '<tr><td>this is a row</td></tr>'
+        })
+        let vm = new Vue({
+            el: '#root'
+        })
+    </script>
+</body>
+</html>
