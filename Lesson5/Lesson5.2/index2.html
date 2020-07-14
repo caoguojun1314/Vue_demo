@@ -5,19 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>在Vue中使用Animate.css库</title>
     <script src="./vue.js"></script>
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+    <style>
+        /* @keyframes bounce-in {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+        } */
+        /* .v-enter-active {
+            transform-origin: left center;
+            animation: bounce-in 1s;
+        }
+        .v-leave-active {
+            transform-origin: left center;
+            animation: bounce-in 1s reverse;
+        } */
+        /* .active {
+            transform-origin: left center;
+            animation: bounce-in 1s;
+        }
+        .leave {
+            transform-origin: left center;
+            animation: bounce-in 1s reverse;
+        } */
+    </style>
 </head>
 <body>
     <div id="root">
         <transition 
-            enter-active-class="animate__flash"
-            leave-active-class="animate__swing"
+            enter-active-class="animate__animated animate__bounce"
+            leave-active-class="animate__animated animate__flash"
         >
             <div v-if="show">hello world</div>
-        </transition>     
+        </transition>
+       
         <button @click="handleClick">切换</button>
     </div>
     <script>

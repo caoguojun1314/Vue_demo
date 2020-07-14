@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="./vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+    <style>
+        .fade-enter,
+        .fade-leave-to {
+            opacity: 0;
+        }
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity 1s;
+        } 
+    </style>
+</head>
+<body>
+    <div id="root">
+        <transition 
+
+            :duration="5000"
+            name="fade"
+            appear
+            enter-active-class="animate__animated animate__bounce fade-enter-active"
+            leave-active-class="animate__animated animate__flash fade-leave-active"            
+        >
+            <div v-if="show">hello world</div>
+        </transition>
+       
+        <button @click="handleClick">切换</button>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#root',
+            data: {
+                show: true
+            },
+            methods: {
+                handleClick: function (){
+                    this.show = !this.show
+                }
+            }
+        })
+    </script>
+</body>
+</html>
